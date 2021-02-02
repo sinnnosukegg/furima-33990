@@ -6,13 +6,13 @@
 
 | Column             | Type   | Options     |
 | ----------------   | ------ | ------------|
-| nickname           | string | NOT NULL    |
-| email              | string | NOT NULL    |
-| encrypted_password | string | NOT NULL    |
-| first_name         | string | NOT NULL    |
-| last_name          | string | NOT NULL    |
-| first_name_kana    | string | NOT NULL    |
-| last_name_kana     | string | NOT NULL    |
+| nickname           | string | null :false |
+| email              | string | null :false |
+| encrypted_password | string | null :false |
+| first_name         | string | null :false |
+| last_name          | string | null :false |
+| first_name_kana    | string | null :false |
+| last_name_kana     | string | null :false |
 | birth_day          | date   | null :false |
 
 ### Association
@@ -23,14 +23,14 @@
 
 | Column        |  Type        | Options          |
 | ----------    | ------------ | ---------------- |
-| name          | string       | NOT NULL         |
-| exposition    | text         | NOT NULL         |
-| category_id   | integer      | NOT NULL         |
-| state_id      | integer      | NOT NULL         |
-| burden_id     | integer      | NOT NULL         |
-| area          | integer      | NOT NULL         |
-| days_id       | integer      | NOT NULL         |
-| price         | integer      | NOT NULL         |
+| name          | string       | null :false      |
+| exposition    | text         | null :false      |
+| category_id   | integer      | null :false      |
+| state_id      | integer      | null :false      |
+| burden_id     | integer      | null :false      |
+| area          | integer      | null :false      |
+| days_id       | integer      | null :false      |
+| price         | integer      | null :false      |
 | user          | references   | foreign_key:true |
 
 ### Association
@@ -53,12 +53,12 @@
 
 | Column     | Type       | Options           |
 | ---------- | -----------| ----------------- |
-| postal     | string     | NOT NULL          |
-| area       | integer    | NOT NULL          |
-| city       | string     | NOT NULL          |
-| addres     | string     | NOT NULL          |
+| postal     | string     | null :false       |
+| area       | integer    | null :false       |
+| city       | string     | null :false       |
+| addres     | string     | null :false       |
 | build      | string     |                   |
-| call       | string     | NOT NULL          |
+| call       | string     | null :false       |
 | user       | references | foreign_key: true |
 | item       | references | foreign_key: true |
 
