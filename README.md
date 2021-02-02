@@ -4,38 +4,48 @@
 
 ## users テーブル
 
-| Column      | Type   | Options  |
-| ----------- | ------ | ---------|
-| nickname    | string | NOT NULL |
-| email       | string | NOT NULL |
-| password    | string | NOT NULL |
-| name        | text   | NOT NULL |
-| name_kana   | text   | NOT NULL |
-| birth-year  | string | NOT NULL |
-| birth-month | string | NOT NULL |
-| birth-day   | string | NOT NULL |
+| Column             | Type   | Options  |
+| ----------------   | ------ | ---------|
+| nickname           | string | NOT NULL |
+| encrypted_password | string | NOT NULL |
+| first_name         | string | NOT NULL |
+| last_name          | string | NOT NULL |
+| first_name_kana    | string | NOT NULL |
+| last_name_kana     | string | NOT NULL |
+| birth-day          | date   | NOT NULL |
 
 ## items テーブル
 
 | Column     | Type         | Options     |
 | ---------- | ------------ | ----------- |
-| image      | string       | NOT NULL    |
 | name       | string       | NOT NULL    |
-| exposition | text         | NOT NULL    |
-| details    | text         | NOT NULL    |
-| catesory   | string       | NOT NULL    |
-| state      | string       | NOT NULL    |
-| burden     | string       | NOT NULL    |
-| area       | string       | NOT NULL    |
-| days       | string       | NOT NULL    |
+| exposition | integer        | NOT NULL    |
+| catesory   | integer       | NOT NULL    |
+| state      | integer       | NOT NULL    |
+| burden     | integer      | NOT NULL    |
+| area       | integer       | NOT NULL    |
+| days       | integer       | NOT NULL    |
 | price      | string       | NOT NULL    |
-| user       | references   |             |
+| user       | references   | foreign_key: true |
 
-## comments テーブル
+## trans テーブル
 
-| Column    | Type       | Options  |
-| --------- | ---------- | -------- |
-| text      | text       | NOT NULL |
-| user      | references |          |
-| item      | references |          |
-｜
+| Column | Type       | Options           |
+| ------ | ---------- | ------------------|
+| user   | references | foreign_key: true |
+| item   | references | foreign_key: true |
+
+## delivery テーブル
+
+| Column     | Type       | Options           |
+| ---------- | -----------| ----------------- |
+| postal     | string     | NOT NULL          |
+| ken        | integer    | NOT NULL          |
+| city       | string     | NOT NULL          |
+| addres     | string     | NOT NULL          |
+| build      | string     |                   |
+| call       | string     | NOT NULL          |
+| user       | references | foreign_key: true |
+| item       | references | foreign_key: true |
+
+
