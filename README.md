@@ -4,28 +4,28 @@
 
 ## users テーブル
 
-| Column             | Type   | Options  |
-| ----------------   | ------ | ---------|
-| nickname           | string | NOT NULL |
-| email              | string | NOT NULL |
-| encrypted_password | string | NOT NULL |
-| first_name         | string | NOT NULL |
-| last_name          | string | NOT NULL |
-| first_name_kana    | string | NOT NULL |
-| last_name_kana     | string | NOT NULL |
-| birth-day          | date   | NOT NULL |
+| Column             | Type   | Options     |
+| ----------------   | ------ | ------------|
+| nickname           | string | NOT NULL    |
+| email              | string | NOT NULL    |
+| encrypted_password | string | NOT NULL    |
+| first_name         | string | NOT NULL    |
+| last_name          | string | NOT NULL    |
+| first_name_kana    | string | NOT NULL    |
+| last_name_kana     | string | NOT NULL    |
+| birth_day          | date   | null :false |
 
 ### Association
 - has_many :items
-- has_many :trans
+- has_many :records
 
 ## items テーブル
 
 | Column        |  Type        | Options          |
 | ----------    | ------------ | ---------------- |
 | name          | string       | NOT NULL         |
-| exposition_id | integer      | NOT NULL         |
-| catesory_id   | integer      | NOT NULL         |
+| exposition    | text         | NOT NULL         |
+| category_id   | integer      | NOT NULL         |
 | state_id      | integer      | NOT NULL         |
 | burden_id     | integer      | NOT NULL         |
 | area          | integer      | NOT NULL         |
@@ -35,19 +35,19 @@
 
 ### Association
   belongs_to :user
-  has_one :trans
+  has_one :records
 
-## trans テーブル
+## record テーブル
 
 | Column  | Type       | Options           |
 | ------  | ---------- | ------------------|
-| user_id | references | foreign_key: true |
-| item_id | references | foreign_key: true |
+| user    | references | foreign_key: true |
+| item    | references | foreign_key: true |
 
 ### Association
   belongs_to :user
   belongs_to :item
-  has_one :delivery
+  has_one :deliverys
 
 ## delivery テーブル
 
@@ -63,4 +63,4 @@
 | item       | references | foreign_key: true |
 
 ### Association
- belongs_to :trans
+ belongs_to :record
