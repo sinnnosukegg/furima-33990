@@ -38,4 +38,4 @@
 | text      | text       | NOT NULL |
 | user      | references |          |
 | item      | references |          |
-
+｜
