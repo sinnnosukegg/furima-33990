@@ -15,7 +15,6 @@
 | birth-month | string | NOT NULL |
 | birth-day   | string | NOT NULL |
 
-
 ## items テーブル
 
 | Column     | Type         | Options     |
