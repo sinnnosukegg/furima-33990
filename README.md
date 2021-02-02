@@ -41,14 +41,15 @@
 
 | Column    | Type       | Options           |
 | --------  | ---------- | ------------------|
-| delivery  | references | foreign_key: true |
+| user      | references | foreign_key: true |
+| item      | references | foreign_key: true |
 
 ### Association
   belongs_to :user
   belongs_to :item
   has_one :delivery
 
-## deliverys テーブル
+## deliveries テーブル
 
 | Column     | Type       | Options           |
 | ---------- | -----------| ----------------- |
@@ -58,8 +59,7 @@
 | addres     | string     | null :false       |
 | build      | string     |                   |
 | call       | string     | null :false       |
-| user       | references | foreign_key: true |
-| item       | references | foreign_key: true |
+| record     | references | foreign_key: true |
 
 ### Association
  belongs_to :record
