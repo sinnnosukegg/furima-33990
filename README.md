@@ -35,9 +35,9 @@
 
 ### Association
   belongs_to :user
-  has_one :records
+  has_one :record
 
-## record テーブル
+## records テーブル
 
 | Column    | Type       | Options           |
 | --------  | ---------- | ------------------|
@@ -46,14 +46,14 @@
 ### Association
   belongs_to :user
   belongs_to :item
-  has_one :deliverys
+  has_one :delivery
 
-## delivery テーブル
+## deliverys テーブル
 
 | Column     | Type       | Options           |
 | ---------- | -----------| ----------------- |
 | postal     | string     | null :false       |
-| area       | integer    | null :false       |
+| area_id    | integer    | null :false       |
 | city       | string     | null :false       |
 | addres     | string     | null :false       |
 | build      | string     |                   |
