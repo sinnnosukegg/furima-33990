@@ -4,38 +4,62 @@
 
 ## users テーブル
 
-| Column      | Type   | Options  |
-| ----------- | ------ | ---------|
-| nickname    | string | NOT NULL |
-| email       | string | NOT NULL |
-| password    | string | NOT NULL |
-| name        | text   | NOT NULL |
-| name_kana   | text   | NOT NULL |
-| birth-year  | string | NOT NULL |
-| birth-month | string | NOT NULL |
-| birth-day   | string | NOT NULL |
+| Column             | Type   | Options     |
+| ----------------   | ------ | ------------|
+| nickname           | string | null :false |
+| email              | string | null :false |
+| encrypted_password | string | null :false |
+| first_name         | string | null :false |
+| last_name          | string | null :false |
+| first_name_kana    | string | null :false |
+| last_name_kana     | string | null :false |
+| birth_day          | date   | null :false |
+
+### Association
+- has_many :items
+- has_many :records
 
 ## items テーブル
 
-| Column     | Type         | Options     |
-| ---------- | ------------ | ----------- |
-| image      | string       | NOT NULL    |
-| name       | string       | NOT NULL    |
-| exposition | text         | NOT NULL    |
-| details    | text         | NOT NULL    |
-| catesory   | string       | NOT NULL    |
-| state      | string       | NOT NULL    |
-| burden     | string       | NOT NULL    |
-| area       | string       | NOT NULL    |
-| days       | string       | NOT NULL    |
-| price      | string       | NOT NULL    |
-| user       | references   |             |
+| Column        |  Type        | Options          |
+| ----------    | ------------ | ---------------- |
+| name          | string       | null :false      |
+| exposition    | text         | null :false      |
+| category_id   | integer      | null :false      |
+| state_id      | integer      | null :false      |
+| burden_id     | integer      | null :false      |
+| area_id       | integer      | null :false      |
+| days_id       | integer      | null :false      |
+| price         | integer      | null :false      |
+| user          | references   | foreign_key:true |
 
-## comments テーブル
+### Association
+  belongs_to :user
+  has_one :record
 
-| Column    | Type       | Options  |
-| --------- | ---------- | -------- |
-| text      | text       | NOT NULL |
-| user      | references |          |
-| item      | references |          |
+## records テーブル
 
+| Column    | Type       | Options           |
+| --------  | ---------- | ------------------|
+| user      | references | foreign_key: true |
+| item      | references | foreign_key: true |
+
+### Association
+  belongs_to :user
+  belongs_to :item
+  has_one :delivery
+
+## deliveries テーブル
+
+| Column     | Type       | Options           |
+| ---------- | -----------| ----------------- |
+| postal     | string     | null :false       |
+| area_id    | integer    | null :false       |
+| city       | string     | null :false       |
+| addres     | string     | null :false       |
+| build      | string     |                   |
+| call       | string     | null :false       |
+| record     | references | foreign_key: true |
+
+### Association
+ belongs_to :record
