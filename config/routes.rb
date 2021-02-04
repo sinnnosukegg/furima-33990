@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   get "items", to: "items#index"
   root to: "items#index"
   resources :items do
-    resources :records, only: [:index, :create]
   end
 
 end
