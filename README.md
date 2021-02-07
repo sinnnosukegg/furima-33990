@@ -24,7 +24,7 @@
 | Column        |  Type        | Options          |
 | ----------    | ------------ | ---------------- |
 | name          | string       | null :false      |
-| exposition    | text         | null :false      |
+| expostion     | text         | null :false      |
 | category_id   | integer      | null :false      |
 | state_id      | integer      | null :false      |
 | burden_id     | integer      | null :false      |
