@@ -14,7 +14,7 @@ class Purchase
   end
 
   validates :area_id, numericality: { other_than: 1, message: 'Select' } 
-   validates :call, numericality: { only_integer: true, message: 'Input only number' }
+  validates :call, numericality: { only_integer: true, message: 'Input only number' }
   
   def save
     record = Record.create(user_id: user_id, item_id: item_id)
