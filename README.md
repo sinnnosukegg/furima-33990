@@ -49,7 +49,7 @@
   belongs_to :item
   has_one :delivery
 
-## deliveries テーブル
+## shipping_area テーブル
 
 | Column     | Type       | Options           |
 | ---------- | -----------| ----------------- |
